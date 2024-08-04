@@ -84,7 +84,7 @@ public class Main {
 		String titulo = obtenerString();
 		System.out.println("Ingrese el nombre del autor de " + titulo);
 		String autor = obtenerString();
-		System.out.println("Ingrese el año en que se publi el libro");
+		System.out.println("Ingrese el año en que se publico el libro");
 		int anio = obtenerInt();
 		System.out.println("Ingrese el genero del libro");
 		String genero = obtenerString();
