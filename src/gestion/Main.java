@@ -6,6 +6,12 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String []args) {
 		Biblioteca biblioteca = new Biblioteca();
+		agregarLibro(biblioteca);
+		agregarLibro(biblioteca);
+		agregarLibro(biblioteca);
+		System.out.println(biblioteca.obtenerDetallesDeLibros());
+		eliminarLibro(biblioteca);
+		System.out.println(biblioteca.obtenerDetallesDeLibros());
 	}
 	public static int obtenerInt() {
 		int i = 0;
@@ -49,7 +55,13 @@ public class Main {
 		biblioteca.agregarLibro(unLibro);
 	}
 	public static void eliminarLibro(Biblioteca biblioteca) {
-		
+		System.out.println("Ingrese el titulo del libro que desea eliminar");
+		String titulo = obtenerString();
+		if(biblioteca.eliminarLibro(titulo)) {
+			System.out.println("Libro:'"+titulo+"' eliminado con exito.");
+		}else {
+			System.out.println("No se ha encontrado ese libro");
+		}
 	}
 	
 }
