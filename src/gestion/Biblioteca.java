@@ -54,4 +54,15 @@ public class Biblioteca {
 		}
 		return detalles;
 	}
+
+	public Libro buscarLibro(String titulo) {
+		Libro unLibro;
+		int posicion = buscarIndice(titulo);
+		if(posicion==-1) {
+			unLibro=null;
+		}else {
+			unLibro = this.libros.get(posicion);
+		}
+		return unLibro;
+	}
 }
