@@ -21,6 +21,7 @@ public class Biblioteca {
 	public boolean eliminarLibro(String titulo) {
 		boolean exito = false;
 		int posicion = buscarIndice(titulo);
+		//Si se encontro el endice elimina el libro
 		if(posicion !=-1) {
 			this.libros.remove(posicion);
 			exito = true;
@@ -31,7 +32,7 @@ public class Biblioteca {
 	private int buscarIndice(String titulo) {
 		int posicion =-1;
 		int i = 0;
-		//Buscar la posicion del libro en la lista
+		//Busca la posicion del libro en la lista
 		while(i<this.libros.size() && posicion ==-1) {
 			//Comparacion ignorando mayusculas
 			if(this.libros.get(i).getTitulo().equalsIgnoreCase(titulo)) {
@@ -45,9 +46,12 @@ public class Biblioteca {
 
 	public String obtenerDetallesDeLibros() {
 		String detalles = "";
-		if(this.libros.size()==0) {
+		int cantidadLibros = this.libros.size();
+		//Si la coleccion esta vacía no hay nada que mostrar
+		if(cantidadLibros==0) {
 			detalles = "No hay libros";
 		}else {
+			//Si hay al menos un libro se itera para obtener los detalles.
 			for(Libro unLibro: this.libros) {
 				detalles = detalles +unLibro.toString()+"\n";
 			}
@@ -58,7 +62,9 @@ public class Biblioteca {
 	public Libro buscarLibro(String titulo) {
 		Libro unLibro;
 		int posicion = buscarIndice(titulo);
+		//Buscamos la posicion del libro en la lista
 		if(posicion==-1) {
+			// Si no lo encuentra devuelve null
 			unLibro=null;
 		}else {
 			unLibro = this.libros.get(posicion);
