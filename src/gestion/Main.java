@@ -16,10 +16,15 @@ public class Main {
 	public static int obtenerInt() {
 		int i = 0;
 		Scanner sc = new Scanner(System.in);
+		//Validacion de que pida un numero y que al menos sea mayor que 0
 		while (i == 0) {
 			try {
 				int nro = sc.nextInt();
-				i = nro;
+				if(nro>0) {
+					i = nro;					
+				}else {
+					System.out.println("El numero debe ser mayor a 0");
+				}
 			} catch (InputMismatchException e) {
 				System.out.println("Por favor ingrese un numero");
 				sc.next();
@@ -33,6 +38,7 @@ public class Main {
 		boolean conseguido= false;
 		Scanner sc = new Scanner(System.in);
 		while(!conseguido) {
+			//Validacion de un texto vacio
 			texto = sc.nextLine();
 			if(!texto.isBlank()) {
 				conseguido =true;
@@ -57,6 +63,7 @@ public class Main {
 	public static void eliminarLibro(Biblioteca biblioteca) {
 		System.out.println("Ingrese el titulo del libro que desea eliminar");
 		String titulo = obtenerString();
+		//Eliminación del libro
 		if(biblioteca.eliminarLibro(titulo)) {
 			System.out.println("Libro:'"+titulo+"' eliminado con exito.");
 		}else {
