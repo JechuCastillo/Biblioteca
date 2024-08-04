@@ -7,11 +7,8 @@ public class Main {
 	public static void main(String []args) {
 		Biblioteca biblioteca = new Biblioteca();
 		agregarLibro(biblioteca);
-		agregarLibro(biblioteca);
-		agregarLibro(biblioteca);
-		System.out.println(biblioteca.obtenerDetallesDeLibros());
-		eliminarLibro(biblioteca);
-		System.out.println(biblioteca.obtenerDetallesDeLibros());
+		mostrarLibros(biblioteca);
+		buscarLibro(biblioteca);
 	}
 	public static int obtenerInt() {
 		int i = 0;
@@ -70,5 +67,17 @@ public class Main {
 			System.out.println("No se ha encontrado ese libro");
 		}
 	}
-	
+	public static void mostrarLibros(Biblioteca biblioteca) {
+		System.out.println(biblioteca.obtenerDetallesDeLibros());
+	}
+	public static void buscarLibro(Biblioteca biblioteca) {
+		System.out.println("Ingrese el titulo del libro que desea buscar:");
+		String titulo = obtenerString();
+		Libro unLibro= biblioteca.buscarLibro(titulo);
+		if(unLibro!=null) {
+			System.out.println(unLibro.toString());
+		}else {
+			System.out.println("Libro no encontrado");
+		}
+	}
 }
